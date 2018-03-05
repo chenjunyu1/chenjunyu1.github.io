@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/03/05/hello-world/</loc>
+    <lastmod>2018-03-05T09:10:06.371Z</lastmod>
+    <data>
+        <display>
+        <title>前端面试题整理</title>
+        <pubTime>2018-03-05T08:21:00.000Z</pubTime>
+        
+        <tag>前端面试题</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/05/%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E6%95%99%E7%BB%99%E6%88%91%E7%9A%84%E9%81%93%E7%90%86/</loc>
     <lastmod>2018-03-05T08:34:53.323Z</lastmod>
     <data>
@@ -43,20 +60,5 @@
     
     
     
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/04/hello-world/</loc>
-    <lastmod>2018-03-04T20:13:25.349Z</lastmod>
-    <data>
-        <display>
-        <title>前端面试题整理</title>
-        <pubTime>2018-03-04T02:34:43.286Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
     
 </urlset>
