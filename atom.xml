@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-04T20:13:25.349Z</updated>
+  <updated>2018-03-05T08:15:02.951Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo搭建github博客教程</title>
+    <link href="http://yoursite.com/2018/03/05/Hexo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/03/05/Hexo搭建github博客教程/</id>
+    <published>2018-03-05T08:12:45.000Z</published>
+    <updated>2018-03-05T08:15:02.951Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>前端面试题整理</title>
