@@ -5,9 +5,9 @@
   <subtitle>Peace and Love-2018</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://chenjunyu.cc/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2018-03-04T20:13:25.349Z</updated>
-  <id>http://chenjunyu.cc/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Kris</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>前端面试题整理</title>
-    <link href="http://chenjunyu.cc/2018/03/04/hello-world/"/>
-    <id>http://chenjunyu.cc/2018/03/04/hello-world/</id>
+    <link href="http://yoursite.com/2018/03/04/hello-world/"/>
+    <id>http://yoursite.com/2018/03/04/hello-world/</id>
     <published>2018-03-04T02:34:43.286Z</published>
     <updated>2018-03-04T20:13:25.349Z</updated>
     
