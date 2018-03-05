@@ -167,7 +167,7 @@
 
 
 </head>
-undefined
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -350,7 +350,7 @@ undefined
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen junyu">
+      <meta itemprop="name" content="Kris">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
@@ -814,7 +814,7 @@ GET方式需要使用Request.QueryString来取得变量的值，而POST方式通
 <p>   3、使用defer（只支持IE）</p>
 <p>   4、不要在嵌入的JS中调用运行时间较长的函数，如果一定要用，可以用<code>setTimeout</code>来调用</p>
 <p>Javascript无阻塞加载具体方式</p>
-<p>将脚本放在底部。<link>还是放在head中，用以保证在js加载前，能加载出正常显示的页面。<script>标签放在<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false});</script>前。<br>成组脚本：由于每个<script>标签下载时阻塞页面解析过程，所以限制页面的<script>总数也可以改善性能。适用于内联脚本和外部脚本。</p>
+<p>将脚本放在底部。<link>还是放在head中，用以保证在js加载前，能加载出正常显示的页面。<script>标签放在<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>前。<br>成组脚本：由于每个<script>标签下载时阻塞页面解析过程，所以限制页面的<script>总数也可以改善性能。适用于内联脚本和外部脚本。</p>
 <p>非阻塞脚本：等页面完成加载后，再加载js代码。也就是，在window.onload事件发出后开始下载代码。<br>（1）defer属性：支持IE4和fierfox3.5更高版本浏览器<br>（2）动态脚本元素：文档对象模型（DOM）允许你使用js动态创建HTML的几乎全部文档内容。代码如下：</p>
 <script>
 var script=document.createElement("script");
@@ -958,7 +958,7 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/w.png" alt="Chen junyu 微信支付"/>
+        <img id="wechat_qr" src="/images/w.png" alt="Kris 微信支付"/>
         <p>微信支付</p>
       </div>
     
@@ -1085,9 +1085,9 @@ document.getElementsByTagName("head")[0].appendChild(script);
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="Chen junyu" />
+                alt="Kris" />
             
-              <p class="site-author-name" itemprop="name">Chen junyu</p>
+              <p class="site-author-name" itemprop="name">Kris</p>
               <p class="site-description motion-element" itemprop="description">我不想做个单纯优秀的人，而是要去做个无法替代的人。</p>
           </div>
 
@@ -1159,7 +1159,7 @@ document.getElementsByTagName("head")[0].appendChild(script);
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Chen junyu</span>
+  <span class="author" itemprop="copyrightHolder">Kris</span>
 
   
 </div>
@@ -1738,7 +1738,7 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
