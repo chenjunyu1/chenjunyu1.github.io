@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/03/05/%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E6%95%99%E7%BB%99%E6%88%91%E7%9A%84%E9%81%93%E7%90%86/</loc>
+    <lastmod>2018-03-06T07:20:38.406Z</lastmod>
+    <data>
+        <display>
+        <title>《平凡的世界》教给我的道理</title>
+        <pubTime>2018-03-05T08:21:00.000Z</pubTime>
+        
+        <tag>阅读</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情" url="http://yoursite.com/categories/%E5%BF%83%E6%83%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/03/05/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2018-03-06T07:20:20.948Z</lastmod>
+    <data>
+        <display>
+        <title>前端面试题整理</title>
+        <pubTime>2018-03-05T08:21:00.000Z</pubTime>
+        
+        <tag>前端面试题</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/03/05/vue2-0-%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2018-03-06T07:19:59.250Z</lastmod>
+    <data>
+        <display>
+        <title>vue2.0-面试题</title>
+        <pubTime>2018-03-05T09:31:29.000Z</pubTime>
+        
+        <tag>VUE</tag>
+         
+         
+           
+             
+              <breadCrumb title="Vue" url="http://yoursite.com/categories/Vue/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/05/React-%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2018-03-05T09:41:46.935Z</lastmod>
     <data>
@@ -16,57 +76,6 @@
              
               <breadCrumb title="React" url="http://yoursite.com/categories/React/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/05/vue2-0-%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2018-03-05T09:34:50.692Z</lastmod>
-    <data>
-        <display>
-        <title>vue2.0-面试题</title>
-        <pubTime>2018-03-05T09:31:29.000Z</pubTime>
-        
-        <tag>VUE</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/05/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</loc>
-    <lastmod>2018-03-05T09:10:06.371Z</lastmod>
-    <data>
-        <display>
-        <title>前端面试题整理</title>
-        <pubTime>2018-03-05T08:21:00.000Z</pubTime>
-        
-        <tag>前端面试题</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/05/%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E6%95%99%E7%BB%99%E6%88%91%E7%9A%84%E9%81%93%E7%90%86/</loc>
-    <lastmod>2018-03-05T08:34:53.323Z</lastmod>
-    <data>
-        <display>
-        <title>《平凡的世界》教给我的道理</title>
-        <pubTime>2018-03-05T08:21:00.000Z</pubTime>
-        
-        <tag>阅读</tag>
-         
-         
-           
         </display>
     </data>
     </url>
