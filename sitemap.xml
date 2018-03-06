@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/03/05/Hexo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</loc>
-    
-    <lastmod>2018-03-05T09:43:24.226Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/03/05/React-%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     
     <lastmod>2018-03-05T09:41:46.935Z</lastmod>
@@ -23,7 +16,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/03/05/hello-world/</loc>
+    <loc>http://yoursite.com/2018/03/05/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</loc>
     
     <lastmod>2018-03-05T09:10:06.371Z</lastmod>
     
