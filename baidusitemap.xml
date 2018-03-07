@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/03/05/JS%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2018-03-07T14:56:14.636Z</lastmod>
+    <data>
+        <display>
+        <title>JS实现继承的几种方式</title>
+        <pubTime>2018-03-05T09:31:29.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="JS" url="http://yoursite.com/categories/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/05/JS%E5%8E%9F%E5%9E%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
     <lastmod>2018-03-07T14:53:32.849Z</lastmod>
     <data>
@@ -35,26 +53,6 @@
            
              
               <breadCrumb title="React" url="http://yoursite.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/05/JS%E7%BB%A7%E6%89%BF/</loc>
-    <lastmod>2018-03-07T14:51:12.574Z</lastmod>
-    <data>
-        <display>
-        <title>JS实现继承的几种方式</title>
-        <pubTime>2018-03-05T09:31:29.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-         
-           
-             
-              <breadCrumb title="JS" url="http://yoursite.com/categories/JS/"/>
           
         </display>
     </data>

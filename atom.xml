@@ -42,6 +42,32 @@
   </entry>
   
   <entry>
+    <title>JS实现继承的几种方式</title>
+    <link href="http://yoursite.com/2018/03/05/JS%E7%BB%A7%E6%89%BF/"/>
+    <id>http://yoursite.com/2018/03/05/JS继承/</id>
+    <published>2018-03-05T09:31:29.000Z</published>
+    <updated>2018-03-07T14:56:14.636Z</updated>
+    
+    <content type="html"><![CDATA[<p>前言</p><p>JS作为面向对象的弱类型语言，继承也是其非常强大的特性之一。那么如何在JS中实现继承呢？让我们拭目以待。</p><p>JS继承的实现方式<br>既然要实现继承，那么首先我们得有一个父类，代码如下：</p><p>// 定义一个动物类<br>function Animal (name) {<br>  // 属性<br>  this.name = name || ‘Animal’;<br>  // 实例方法<br>  this.sleep = function(){<br>    console.log(this.name + ‘正在睡觉！’);<br>  }<br>}<br>// 原型方法<br>Animal.prototype.eat = function(food) {<br>  console.log(this.name + ‘正在吃：’ + food);<br>};<br>1、原型链继承</p><p>核心： 将父类的实例作为子类的原型</p><p>function Cat(){<br>}<br>Cat.prototype = new Animal();<br>Cat.prototype.name = ‘cat’;</p><p>//　Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.eat(‘fish’));<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); //true<br>console.log(cat instanceof Cat); //true<br>特点：</p><p>非常纯粹的继承关系，实例是子类的实例，也是父类的实例<br>父类新增原型方法/原型属性，子类都能访问到<br>简单，易于实现<br>缺点：</p><p>要想为子类新增属性和方法，必须要在new Animal()这样的语句之后执行，不能放到构造器中<br>无法实现多继承<br>来自原型对象的引用属性是所有实例共享的（详细请看附录代码： 示例1）<br>创建子类实例时，无法向父类构造函数传参<br>推荐指数：★★（3、4两大致命缺陷）</p><p>2、构造继承</p><p>核心：使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类（没用到原型）</p><p>function Cat(name){<br>  Animal.call(this);<br>  this.name = name || ‘Tom’;<br>}</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // false<br>console.log(cat instanceof Cat); // true<br>特点：</p><p>解决了1中，子类实例共享父类引用属性的问题<br>创建子类实例时，可以向父类传递参数<br>可以实现多继承（call多个父类对象）<br>缺点：</p><p>实例并不是父类的实例，只是子类的实例<br>只能继承父类的实例属性和方法，不能继承原型属性/方法<br>无法实现函数复用，每个子类都有父类实例函数的副本，影响性能<br>推荐指数：★★（缺点3）</p><p>3、实例继承</p><p>核心：为父类实例添加新特性，作为子类实例返回</p><p>function Cat(name){<br>  var instance = new Animal();<br>  instance.name = name || ‘Tom’;<br>  return instance;<br>}</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // true<br>console.log(cat instanceof Cat); // false<br>特点：</p><p>不限制调用方式，不管是new 子类()还是子类(),返回的对象具有相同的效果<br>缺点：</p><p>实例是父类的实例，不是子类的实例<br>不支持多继承<br>推荐指数：★★</p><p>4、拷贝继承</p><p>function Cat(name){<br>  var animal = new Animal();<br>  for(var p in animal){<br>    Cat.prototype[p] = animal[p];<br>  }<br>  Cat.prototype.name = name || ‘Tom’;<br>}</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // false<br>console.log(cat instanceof Cat); // true<br>特点：</p><p>支持多继承<br>缺点：</p><p>效率较低，内存占用高（因为要拷贝父类的属性）<br>无法获取父类不可枚举的方法（不可枚举方法，不能使用for in 访问到）<br>推荐指数：★（缺点1）</p><p>5、组合继承</p><p>核心：通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p><p>function Cat(name){<br>  Animal.call(this);<br>  this.name = name || ‘Tom’;<br>}<br>Cat.prototype = new Animal();</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // true<br>console.log(cat instanceof Cat); // true<br>特点：</p><p>弥补了方式2的缺陷，可以继承实例属性/方法，也可以继承原型属性/方法<br>既是子类的实例，也是父类的实例<br>不存在引用属性共享问题<br>可传参<br>函数可复用<br>缺点：</p><p>调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了）<br>推荐指数：★★★★（仅仅多消耗了一点内存）</p><p>6、寄生组合继承</p><p>核心：通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点</p><p>function Cat(name){<br>  Animal.call(this);<br>  this.name = name || ‘Tom’;<br>}<br>(function(){<br>  // 创建一个没有实例方法的类<br>  var Super = function(){};<br>  Super.prototype = Animal.prototype;<br>  //将实例作为子类的原型<br>  Cat.prototype = new Super();<br>})();</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // true<br>console.log(cat instanceof Cat); //true<br>特点：</p><p>堪称完美<br>缺点：</p><p>实现较为复杂<br>推荐指数：★★★★（实现复杂，扣掉一颗星）</p><p>附录代码：<br>示例一：</p><p>function Animal (name) {<br>  // 属性<br>  this.name = name || ‘Animal’;<br>  // 实例方法<br>  this.sleep = function(){<br>    console.log(this.name + ‘正在睡觉！’);<br>  }<br>  //实例引用属性<br>  this.features = [];<br>}<br>function Cat(name){<br>}<br>Cat.prototype = new Animal();</p><p>var tom = new Cat(‘Tom’);<br>var kissy = new Cat(‘Kissy’);</p><p>console.log(tom.name); // “Animal”<br>console.log(kissy.name); // “Animal”<br>console.log(tom.features); // []<br>console.log(kissy.features); // []</p><p>tom.name = ‘Tom-New Name’;<br>tom.features.push(‘eat’);</p><p>//针对父类实例值类型成员的更改，不影响<br>console.log(tom.name); // “Tom-New Name”<br>console.log(kissy.name); // “Animal”<br>//针对父类实例引用类型成员的更改，会通过影响其他子类实例<br>console.log(tom.features); // [‘eat’]<br>console.log(kissy.features); // [‘eat’]</p><p>原因分析：</p><p>关键点：属性查找过程</p><p>执行tom.features.push，首先找tom对象的实例属性（找不到），<br>那么去原型对象中找，也就是Animal的实例。发现有，那么就直接在这个对象的<br>features属性中插入值。<br>在console.log(kissy.features); 的时候。同上，kissy实例上没有，那么去原型上找。<br>刚好原型上有，就直接返回，但是注意，这个原型对象中features属性值已经变化了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前言&lt;/p&gt;
+&lt;p&gt;JS作为面向对象的弱类型语言，继承也是其非常强大的特性之一。那么如何在JS中实现继承呢？让我们拭目以待。&lt;/p&gt;
+&lt;p&gt;JS继承的实现方式&lt;br&gt;既然要实现继承，那么首先我们得有一个父类，代码如下：&lt;/p&gt;
+&lt;p&gt;// 定义一个动物类&lt;br&gt;functi
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://yoursite.com/categories/JS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>vue2.0-学习总结</title>
     <link href="http://yoursite.com/2018/03/05/vue2.0-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/03/05/vue2.0-学习总结/</id>
@@ -65,34 +91,6 @@
     
     
       <category term="VUE" scheme="http://yoursite.com/tags/VUE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS实现继承的几种方式</title>
-    <link href="http://yoursite.com/2018/03/05/JS%E7%BB%A7%E6%89%BF/"/>
-    <id>http://yoursite.com/2018/03/05/JS继承/</id>
-    <published>2018-03-05T09:31:29.000Z</published>
-    <updated>2018-03-07T14:51:12.574Z</updated>
-    
-    <content type="html"><![CDATA[<p>前言</p><p>JS作为面向对象的弱类型语言，继承也是其非常强大的特性之一。那么如何在JS中实现继承呢？让我们拭目以待。</p><p>JS继承的实现方式<br>既然要实现继承，那么首先我们得有一个父类，代码如下：</p><p>// 定义一个动物类<br>function Animal (name) {<br>  // 属性<br>  this.name = name || ‘Animal’;<br>  // 实例方法<br>  this.sleep = function(){<br>    console.log(this.name + ‘正在睡觉！’);<br>  }<br>}<br>// 原型方法<br>Animal.prototype.eat = function(food) {<br>  console.log(this.name + ‘正在吃：’ + food);<br>};<br>1、原型链继承</p><p>核心： 将父类的实例作为子类的原型</p><p>function Cat(){<br>}<br>Cat.prototype = new Animal();<br>Cat.prototype.name = ‘cat’;</p><p>//　Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.eat(‘fish’));<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); //true<br>console.log(cat instanceof Cat); //true<br>特点：</p><p>非常纯粹的继承关系，实例是子类的实例，也是父类的实例<br>父类新增原型方法/原型属性，子类都能访问到<br>简单，易于实现<br>缺点：</p><p>要想为子类新增属性和方法，必须要在new Animal()这样的语句之后执行，不能放到构造器中<br>无法实现多继承<br>来自原型对象的引用属性是所有实例共享的（详细请看附录代码： 示例1）<br>创建子类实例时，无法向父类构造函数传参<br>推荐指数：★★（3、4两大致命缺陷）</p><p>2、构造继承</p><p>核心：使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类（没用到原型）</p><p>function Cat(name){<br>  Animal.call(this);<br>  this.name = name || ‘Tom’;<br>}</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // false<br>console.log(cat instanceof Cat); // true<br>特点：</p><p>解决了1中，子类实例共享父类引用属性的问题<br>创建子类实例时，可以向父类传递参数<br>可以实现多继承（call多个父类对象）<br>缺点：</p><p>实例并不是父类的实例，只是子类的实例<br>只能继承父类的实例属性和方法，不能继承原型属性/方法<br>无法实现函数复用，每个子类都有父类实例函数的副本，影响性能<br>推荐指数：★★（缺点3）</p><p>3、实例继承</p><p>核心：为父类实例添加新特性，作为子类实例返回</p><p>function Cat(name){<br>  var instance = new Animal();<br>  instance.name = name || ‘Tom’;<br>  return instance;<br>}</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // true<br>console.log(cat instanceof Cat); // false<br>特点：</p><p>不限制调用方式，不管是new 子类()还是子类(),返回的对象具有相同的效果<br>缺点：</p><p>实例是父类的实例，不是子类的实例<br>不支持多继承<br>推荐指数：★★</p><p>4、拷贝继承</p><p>function Cat(name){<br>  var animal = new Animal();<br>  for(var p in animal){<br>    Cat.prototype[p] = animal[p];<br>  }<br>  Cat.prototype.name = name || ‘Tom’;<br>}</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // false<br>console.log(cat instanceof Cat); // true<br>特点：</p><p>支持多继承<br>缺点：</p><p>效率较低，内存占用高（因为要拷贝父类的属性）<br>无法获取父类不可枚举的方法（不可枚举方法，不能使用for in 访问到）<br>推荐指数：★（缺点1）</p><p>5、组合继承</p><p>核心：通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p><p>function Cat(name){<br>  Animal.call(this);<br>  this.name = name || ‘Tom’;<br>}<br>Cat.prototype = new Animal();</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // true<br>console.log(cat instanceof Cat); // true<br>特点：</p><p>弥补了方式2的缺陷，可以继承实例属性/方法，也可以继承原型属性/方法<br>既是子类的实例，也是父类的实例<br>不存在引用属性共享问题<br>可传参<br>函数可复用<br>缺点：</p><p>调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了）<br>推荐指数：★★★★（仅仅多消耗了一点内存）</p><p>6、寄生组合继承</p><p>核心：通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点</p><p>function Cat(name){<br>  Animal.call(this);<br>  this.name = name || ‘Tom’;<br>}<br>(function(){<br>  // 创建一个没有实例方法的类<br>  var Super = function(){};<br>  Super.prototype = Animal.prototype;<br>  //将实例作为子类的原型<br>  Cat.prototype = new Super();<br>})();</p><p>// Test Code<br>var cat = new Cat();<br>console.log(cat.name);<br>console.log(cat.sleep());<br>console.log(cat instanceof Animal); // true<br>console.log(cat instanceof Cat); //true<br>特点：</p><p>堪称完美<br>缺点：</p><p>实现较为复杂<br>推荐指数：★★★★（实现复杂，扣掉一颗星）</p><p>附录代码：<br>示例一：</p><p>function Animal (name) {<br>  // 属性<br>  this.name = name || ‘Animal’;<br>  // 实例方法<br>  this.sleep = function(){<br>    console.log(this.name + ‘正在睡觉！’);<br>  }<br>  //实例引用属性<br>  this.features = [];<br>}<br>function Cat(name){<br>}<br>Cat.prototype = new Animal();</p><p>var tom = new Cat(‘Tom’);<br>var kissy = new Cat(‘Kissy’);</p><p>console.log(tom.name); // “Animal”<br>console.log(kissy.name); // “Animal”<br>console.log(tom.features); // []<br>console.log(kissy.features); // []</p><p>tom.name = ‘Tom-New Name’;<br>tom.features.push(‘eat’);</p><p>//针对父类实例值类型成员的更改，不影响<br>console.log(tom.name); // “Tom-New Name”<br>console.log(kissy.name); // “Animal”<br>//针对父类实例引用类型成员的更改，会通过影响其他子类实例<br>console.log(tom.features); // [‘eat’]<br>console.log(kissy.features); // [‘eat’]</p><p>原因分析：</p><p>关键点：属性查找过程</p><p>执行tom.features.push，首先找tom对象的实例属性（找不到），<br>那么去原型对象中找，也就是Animal的实例。发现有，那么就直接在这个对象的<br>features属性中插入值。<br>在console.log(kissy.features); 的时候。同上，kissy实例上没有，那么去原型上找。<br>刚好原型上有，就直接返回，但是注意，这个原型对象中features属性值已经变化了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;前言&lt;/p&gt;
-&lt;p&gt;JS作为面向对象的弱类型语言，继承也是其非常强大的特性之一。那么如何在JS中实现继承呢？让我们拭目以待。&lt;/p&gt;
-&lt;p&gt;JS继承的实现方式&lt;br&gt;既然要实现继承，那么首先我们得有一个父类，代码如下：&lt;/p&gt;
-&lt;p&gt;// 定义一个动物类&lt;br&gt;functi
-      
-    
-    </summary>
-    
-      <category term="JS" scheme="http://yoursite.com/categories/JS/"/>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
   </entry>
   
