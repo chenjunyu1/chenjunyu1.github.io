@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/03/05/JS%E5%8E%9F%E5%9E%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    
+    <lastmod>2018-03-07T14:46:01.699Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/03/05/JS%E7%BB%A7%E6%89%BF/</loc>
     
     <lastmod>2018-03-07T14:44:36.834Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2018/03/05/React-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2018-03-07T14:40:00.197Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/03/05/JS%E5%8E%9F%E5%9E%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
-    
-    <lastmod>2018-03-07T14:39:12.318Z</lastmod>
     
   </url>
   

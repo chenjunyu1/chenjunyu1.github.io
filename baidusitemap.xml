@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/03/05/JS%E5%8E%9F%E5%9E%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    <lastmod>2018-03-07T14:46:01.699Z</lastmod>
+    <data>
+        <display>
+        <title>JS原型、原型链</title>
+        <pubTime>2018-03-05T08:21:00.000Z</pubTime>
+        
+        <tag>JS</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/05/JS%E7%BB%A7%E6%89%BF/</loc>
     <lastmod>2018-03-07T14:44:36.834Z</lastmod>
     <data>
@@ -55,26 +75,6 @@
            
              
               <breadCrumb title="React" url="http://yoursite.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/05/JS%E5%8E%9F%E5%9E%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
-    <lastmod>2018-03-07T14:39:12.318Z</lastmod>
-    <data>
-        <display>
-        <title>JS原型、原型链</title>
-        <pubTime>2018-03-05T08:21:00.000Z</pubTime>
-        
-        <tag>前端Javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
           
         </display>
     </data>
